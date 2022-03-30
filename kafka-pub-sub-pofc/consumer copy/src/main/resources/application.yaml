@@ -1,0 +1,20 @@
+# Profile for local development
+server:
+  port: ${SERVER_PORT:8071}
+spring:
+  config:
+    activate:
+      on-profile: default
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:29092}
+    producer:
+      properties:
+        interceptor.classes: com.petrelai.orderservice.log.KafkaProducerInterceptor
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval-ms: 101
+      group-id: 'general-two'
+    properties:
+      sasl.jaas.config: ''
+      security.protocol: PLAINTEXT

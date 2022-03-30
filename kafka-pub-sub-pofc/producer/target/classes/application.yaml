@@ -1,0 +1,12 @@
+# Profile for local development
+server:
+  port: ${SERVER_PORT:8079}
+spring:
+  config:
+    activate:
+      on-profile: default
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:29092}
+    properties:
+      sasl.jaas.config: ''
+      security.protocol: PLAINTEXT
